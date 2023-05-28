@@ -1,4 +1,4 @@
-#include "MagicalContainer.hpp"
+#include "MagicalContainer.h"
 
 namespace ariel {
 
