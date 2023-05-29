@@ -36,9 +36,10 @@ For expample: say our container contains the numbers 1,2,4,5,14 the iterators wi
 • Ascending: 1,2,4,5,14   
 operator> should return true on 5>2, 14>1
 
-• prime: 2,5
+• prime: 2,5   
 operator> should return true on 5>2
-• cross: 1,14,2,5,4  (one from the start then one from the end)
+
+• cross: 1,14,2,5,4  (one from the start then one from the end)   
 operator> should return true on 5>14, 2>1, 4>14
 
 **All iterators should work in O(1) in both memory and time complexity.** Do note that's only the Iterator operation should be in O(1) in memory and time.
