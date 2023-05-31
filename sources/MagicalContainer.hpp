@@ -4,13 +4,30 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <vector>
 
 using namespace std;
 
 namespace ariel {
     class MagicalContainer {
+
+    private:
+        struct MagicalNode {
+            int _value;
+            bool _prime;
+            int next_prime;
+
+            MagicalNode(int val);
+        };
+
+        bool is_prime(int n);
+
+
     private:
         int _size;
+        vector <MagicalNode> container;
+        MagicalNode *first_prime;
+
 
     public:
         MagicalContainer();
@@ -69,12 +86,12 @@ namespace ariel {
             /**
              * @return Reference to the iterator pointing to the first element of the container.
              */
-            virtual Iterator &begin() = 0;
+            virtual Iterator &begin();
 
             /**
              * @return Reference to the iterator pointing to the last element of the container.
              */
-            virtual Iterator &end() = 0;
+            virtual Iterator &end();
 
             /**
              * @brief Dereference operator.
@@ -84,7 +101,7 @@ namespace ariel {
             /**
              * @brief Pre-increment operator (++i).
              */
-            virtual Iterator &operator++() = 0;
+            virtual Iterator &operator++();
 
             /**
              * @brief Equality comparison.
@@ -194,7 +211,7 @@ namespace ariel {
 //             * @brief LT comparison operator.
 //             * @param _iter1 Reference to this AscendingIterator.
 //             * @param _iter2 Reference to the compared AscendingIterator.
-//             * @return True - if the location of _iter1 is lower then the location of _iter2. False - else.
+//             * @return True - if the location of _iter1 is lower than the location of _iter2. False - else.
 //             * @details Both objects must be of the same type.
 //             * @throws std::invalid_argument If either _iter1 OR _iter2 are not of type AscendingIterator.
 //             */
@@ -222,11 +239,12 @@ namespace ariel {
          */
         class SideCrossIterator : public Iterator {
         private:
+            vector <MagicalContainer> &container;
 
         public:
             SideCrossIterator();
 
-            SideCrossIterator(MagicalContainer _container);
+            SideCrossIterator(MagicalContainer &_container);
 
             SideCrossIterator(SideCrossIterator const &_other);
 
@@ -273,7 +291,7 @@ namespace ariel {
 //             * @brief LT comparison operator.
 //             * @param _iter1 Reference to this SideCrossIterator.
 //             * @param _iter2 Reference to the compared SideCrossIterator.
-//             * @return True - if the location of _iter1 is lower then the location of _iter2. False - else.
+//             * @return True - if the location of _iter1 is lower than the location of _iter2. False - else.
 //             * @details Both objects must be of the same type.
 //             * @throws std::invalid_argument If either _iter1 OR _iter2 are not of type SideCrossIterator.
 //             */
@@ -343,7 +361,7 @@ namespace ariel {
 //             * @brief LT comparison operator.
 //             * @param _iter1 Reference to this PrimeIterator.
 //             * @param _iter2 Reference to the compared PrimeIterator.
-//             * @return True - if the location of _iter1 is lower then the location of _iter2. False - else.
+//             * @return True - if the location of _iter1 is lower than the location of _iter2. False - else.
 //             * @details Both objects must be of the same type.
 //             * @throws std::invalid_argument If either _iter1 OR _iter2 are not of type PrimeIterator.
 //             */
