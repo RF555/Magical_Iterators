@@ -24,11 +24,11 @@ namespace ariel {
 
             bool isPrime() const;
 
-             long getLocation() const;
+            long getLocation() const;
 
             long getNextPrime() const;
 
-            void setLocation( long location);
+            void setLocation(long location);
 
             void setNextPrime(long nextPrime);
 
@@ -74,7 +74,7 @@ namespace ariel {
         friend std::ostream &operator<<(ostream &output, MagicalContainer &_other);
 
 
-    private:
+    public:
 
         /**
          * @class Abstract class representing iterators over the MagicalContainer's elements.
@@ -87,7 +87,7 @@ namespace ariel {
         public:
             Iterator();
 
-            Iterator(MagicalContainer _container);
+            explicit Iterator(MagicalContainer _container);
 
             Iterator(Iterator const &_other);
 
@@ -165,8 +165,6 @@ namespace ariel {
 
         };
 
-    public:
-
         /**
          * @details Iterating over the elements by ascending order (low value to high value).
          */
@@ -176,7 +174,7 @@ namespace ariel {
         public:
             AscendingIterator();
 
-            AscendingIterator(MagicalContainer _container);
+            explicit AscendingIterator(MagicalContainer _container);
 
             AscendingIterator(AscendingIterator const &_other);
 
@@ -256,7 +254,7 @@ namespace ariel {
         public:
             SideCrossIterator();
 
-            SideCrossIterator(MagicalContainer &_container);
+            explicit SideCrossIterator(MagicalContainer &_container);
 
             SideCrossIterator(SideCrossIterator const &_other);
 
@@ -326,7 +324,7 @@ namespace ariel {
         public:
             PrimeIterator();
 
-            PrimeIterator(MagicalContainer _container);
+            explicit PrimeIterator(MagicalContainer _container);
 
             PrimeIterator(PrimeIterator const &_other);
 
