@@ -67,13 +67,13 @@ namespace ariel {
 
     MagicalContainer::Iterator::Iterator() {}
 
-    MagicalContainer::Iterator::Iterator(MagicalContainer _container) {}
+    MagicalContainer::Iterator::Iterator(const MagicalContainer& _container) {}
 
-    MagicalContainer::Iterator::Iterator(const MagicalContainer::Iterator &_other) {}
+    MagicalContainer::Iterator::Iterator(const MagicalContainer::Iterator &_other) = default;
 
     MagicalContainer::MagicalContainer(MagicalContainer &&_other) noexcept {}
 
-    MagicalContainer::Iterator::~Iterator() {}
+    MagicalContainer::Iterator::~Iterator() = default;
 
     MagicalContainer::Iterator &
     MagicalContainer::Iterator::operator=(const MagicalContainer::Iterator &_other) = default;
