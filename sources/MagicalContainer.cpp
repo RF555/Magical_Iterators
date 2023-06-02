@@ -77,15 +77,15 @@ namespace ariel {
     }
 
     void MagicalContainer::updatePrimes() {
-        long curr_prime = -1;
+        long prev_prime = -1;
         for (auto obj: this->container) {
             if (obj->isPrime()) {
-                if (this->first_prime == -1) {
+                if (this->first_prime == -1 && prev_prime == -1) {
                     this->first_prime = obj->getLocation();
                 } else {
-                    this->container[curr_prime]->setNextPrime(obj->getLocation());
+                    this->container.at(static_cast<unsigned long>(prev_prime))->setNextPrime(obj->getLocation());
                 }
-                curr_prime = obj->getLocation();
+                prev_prime = obj->getLocation();
             }
         }
 
@@ -106,7 +106,7 @@ namespace ariel {
         this->container.push_back(&new_element);
         std::sort(this->container.begin(), this->container.end());
         for (long i = 0; i < this->container.size(); ++i) {
-            this->container[i]->setLocation(i);
+            this->container.at(static_cast<unsigned long>(i))->setLocation(i);
         }
         this->updatePrimes();
         ++this->_size;
@@ -119,6 +119,9 @@ namespace ariel {
             } else if (obj->getValue() == element) {
                 MagicalNode *temp = obj;
                 this->container.erase(this->container.begin() + obj->getValue());
+                if (temp->isPrime()) {
+                    this->updatePrimes();
+                }
                 delete temp;
             }
         }
