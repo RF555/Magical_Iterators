@@ -3,30 +3,57 @@
 
 #include <iostream>
 #include <string>
-#include <cmath>
 #include <vector>
+#include <algorithm>
+#include <cmath>
 
 using namespace std;
 
 namespace ariel {
     class MagicalContainer {
 
-    private:
-        struct MagicalNode {
+
+    public:
+        class MagicalNode {
             int _value;
             bool _prime;
-            int next_prime;
+            long _location;
+            long next_prime;
+        public:
+            int getValue() const;
 
-            MagicalNode(int val);
+            bool isPrime() const;
+
+             long getLocation() const;
+
+            long getNextPrime() const;
+
+            void setLocation( long location);
+
+            void setNextPrime(long nextPrime);
+
+        public:
+            explicit MagicalNode(int val);
+
+            friend bool operator>(const MagicalNode &_node1, const MagicalNode &_node2);
+
+            friend bool operator==(const MagicalNode &_node1, const MagicalNode &_node2);
+
+            friend bool operator!=(const MagicalNode &_node1, const MagicalNode &_node2);
+
+//            friend std::ostream &operator<<(ostream &output, MagicalNode &_other);
+
         };
 
-        bool is_prime(int n);
+        static bool is_prime(int num);
 
 
     private:
-        int _size;
-        vector <MagicalNode> container;
-        MagicalNode *first_prime;
+        long _size;
+        vector<MagicalNode *> container;
+        long first_prime;
+
+        void updatePrimes();
 
 
     public:
@@ -38,32 +65,17 @@ namespace ariel {
 
         MagicalContainer &operator=(const MagicalContainer &_other);
 
-        void addElement(int i);
+        void addElement(int element);
 
-        int size();
+        long size() const;
 
-        void removeElement(int i);
+        void removeElement(int element);
 
         friend std::ostream &operator<<(ostream &output, MagicalContainer &_other);
 
-//        class MagicalNode {
-//            int _value;
-//
-//        public:
-//            MagicalNode();
-//
-//            explicit MagicalNode(int value);
-//
-//            MagicalNode(MagicalNode const &_other);
-//
-//            ~MagicalNode();
-//
-//            MagicalNode &operator=(const MagicalNode &_other);
-//
-//        };
-
 
     private:
+
         /**
          * @class Abstract class representing iterators over the MagicalContainer's elements.
          * @details Iterator going over the elements by ascending order (low value to high value).
@@ -239,7 +251,7 @@ namespace ariel {
          */
         class SideCrossIterator : public Iterator {
         private:
-            vector <MagicalContainer> &container;
+            vector<MagicalContainer> &container;
 
         public:
             SideCrossIterator();
