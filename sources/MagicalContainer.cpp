@@ -2,120 +2,79 @@
 
 namespace ariel {
 
-    int MagicalContainer::MagicalNode::getValue() const {
-        return 0;
-    }
+    int MagicalContainer::MagicalNode::getValue() const { return 0; }
 
-    bool MagicalContainer::MagicalNode::isPrime() const {
-        return false;
-    }
+    bool MagicalContainer::MagicalNode::isPrime() const { return false; }
 
-    long MagicalContainer::MagicalNode::getLocation() const {
-        return 0;
-    }
+    long MagicalContainer::MagicalNode::getLocation() const { return 0; }
 
-    long MagicalContainer::MagicalNode::getNextPrime() const {
-        return 0;
-    }
+    long MagicalContainer::MagicalNode::getNextPrime() const { return 0; }
 
-    void MagicalContainer::MagicalNode::setLocation(long location) {
+    void MagicalContainer::MagicalNode::setLocation(long location) {}
 
-    }
+    void MagicalContainer::MagicalNode::setNextPrime(long nextPrime) {}
 
-    void MagicalContainer::MagicalNode::setNextPrime(long nextPrime) {
+    MagicalContainer::MagicalNode::MagicalNode(int val) {}
 
-    }
+    bool operator>(const MagicalContainer::MagicalNode &_node1,
+                   const MagicalContainer::MagicalNode &_node2) { return false; }
 
-    MagicalContainer::MagicalNode::MagicalNode(int val) {
+    bool operator==(const MagicalContainer::MagicalNode &_node1,
+                    const MagicalContainer::MagicalNode &_node2) { return false; }
 
-    }
+    bool operator!=(const MagicalContainer::MagicalNode &_node1,
+                    const MagicalContainer::MagicalNode &_node2) { return false; }
 
-    bool operator>(const MagicalContainer::MagicalNode &_node1, const MagicalContainer::MagicalNode &_node2) {
-        return false;
-    }
+    bool MagicalContainer::is_prime(int num) { return false; }
 
-    bool operator==(const MagicalContainer::MagicalNode &_node1, const MagicalContainer::MagicalNode &_node2) {
-        return false;
-    }
+    void MagicalContainer::updatePrimes() {}
 
-    bool operator!=(const MagicalContainer::MagicalNode &_node1, const MagicalContainer::MagicalNode &_node2) {
-        return false;
-    }
+    MagicalContainer::MagicalContainer() {}
 
-    bool MagicalContainer::is_prime(int num) {
-        return false;
-    }
+    MagicalContainer::MagicalContainer(const MagicalContainer &_other) {}
 
-    void MagicalContainer::updatePrimes() {
-
-    }
-
-    MagicalContainer::MagicalContainer() {
-
-    }
-
-    MagicalContainer::MagicalContainer(const MagicalContainer &_other) {
-
-    }
-
-    MagicalContainer::~MagicalContainer() {
-
-    }
+    MagicalContainer::~MagicalContainer() {}
 
     MagicalContainer &MagicalContainer::operator=(const MagicalContainer &_other) {
-        return <#initializer#>;
+        return *this;
     }
 
-    void MagicalContainer::addElement(int element) {
+    void MagicalContainer::addElement(int element) {}
 
-    }
+    long MagicalContainer::size() const { return 0; }
 
-    long MagicalContainer::size() const {
-        return 0;
-    }
-
-    void MagicalContainer::removeElement(int element) {
-
-    }
+    void MagicalContainer::removeElement(int element) {}
 
     std::ostream &operator<<(ostream &output, MagicalContainer &_other) {
-        return <#initializer#>;
+        return output;
     }
 
-    MagicalContainer::Iterator::Iterator() {
+    MagicalContainer::Iterator::Iterator() {}
 
-    }
+    MagicalContainer::Iterator::Iterator(MagicalContainer _container) {}
 
-    MagicalContainer::Iterator::Iterator(MagicalContainer _container) {
+    MagicalContainer::Iterator::Iterator(const MagicalContainer::Iterator &_other) {}
 
-    }
-
-    MagicalContainer::Iterator::Iterator(const MagicalContainer::Iterator &_other) {
-
-    }
-
-    MagicalContainer::Iterator::~Iterator() {
-
-    }
+    MagicalContainer::Iterator::~Iterator() {}
 
     MagicalContainer::Iterator &MagicalContainer::Iterator::operator=(const MagicalContainer::Iterator &_other) {
-        return <#initializer#>;
+        return *this;
     }
 
     MagicalContainer::Iterator &MagicalContainer::Iterator::begin() {
-        return <#initializer#>;
+        return *this;
     }
 
     MagicalContainer::Iterator &MagicalContainer::Iterator::end() {
-        return <#initializer#>;
+        return *this;
     }
 
-    MagicalContainer::Iterator &MagicalContainer::Iterator::operator*() const {
-        return <#initializer#>;
+    int MagicalContainer::Iterator::operator*() const {
+        return 0;
     }
 
     MagicalContainer::Iterator &MagicalContainer::Iterator::operator++() {
-        return <#initializer#>;
+        return *this;
     }
 
     bool operator==(const MagicalContainer::Iterator &_iter1, const MagicalContainer::Iterator &_iter2) {
@@ -135,28 +94,20 @@ namespace ariel {
     }
 
     std::ostream &operator<<(ostream &output, MagicalContainer::Iterator &_other) {
-        return <#initializer#>;
+        return output;
     }
 
-    MagicalContainer::AscendingIterator::AscendingIterator() {
+    MagicalContainer::AscendingIterator::AscendingIterator() = default;
 
-    }
+    MagicalContainer::AscendingIterator::AscendingIterator(const MagicalContainer &_container) : Iterator(_container) {}
 
-    MagicalContainer::AscendingIterator::AscendingIterator(MagicalContainer _container) : Iterator(_container) {
+    MagicalContainer::AscendingIterator::AscendingIterator(const MagicalContainer::AscendingIterator &_other) {}
 
-    }
-
-    MagicalContainer::AscendingIterator::AscendingIterator(const MagicalContainer::AscendingIterator &_other) {
-
-    }
-
-    MagicalContainer::AscendingIterator::~AscendingIterator() {
-
-    }
+    MagicalContainer::AscendingIterator::~AscendingIterator() = default;
 
     MagicalContainer::AscendingIterator &
     MagicalContainer::AscendingIterator::operator=(const MagicalContainer::AscendingIterator &_other) {
-        return <#initializer#>;
+        return *this;
     }
 
     MagicalContainer::Iterator &MagicalContainer::AscendingIterator::begin() {
@@ -171,25 +122,17 @@ namespace ariel {
         return Iterator::operator++();
     }
 
-    MagicalContainer::SideCrossIterator::SideCrossIterator() {
+    MagicalContainer::SideCrossIterator::SideCrossIterator() = default;
 
-    }
+    MagicalContainer::SideCrossIterator::SideCrossIterator(MagicalContainer &_container) {}
 
-    MagicalContainer::SideCrossIterator::SideCrossIterator(MagicalContainer &_container) {
+    MagicalContainer::SideCrossIterator::SideCrossIterator(const MagicalContainer::SideCrossIterator &_other) {}
 
-    }
-
-    MagicalContainer::SideCrossIterator::SideCrossIterator(const MagicalContainer::SideCrossIterator &_other) {
-
-    }
-
-    MagicalContainer::SideCrossIterator::~SideCrossIterator() {
-
-    }
+    MagicalContainer::SideCrossIterator::~SideCrossIterator() {}
 
     MagicalContainer::SideCrossIterator &
     MagicalContainer::SideCrossIterator::operator=(const MagicalContainer::SideCrossIterator &_other) {
-        return <#initializer#>;
+        return *this;
     }
 
     MagicalContainer::Iterator &MagicalContainer::SideCrossIterator::begin() {
@@ -204,25 +147,17 @@ namespace ariel {
         return Iterator::operator++();
     }
 
-    MagicalContainer::PrimeIterator::PrimeIterator() {
+    MagicalContainer::PrimeIterator::PrimeIterator() = default;
 
-    }
+    MagicalContainer::PrimeIterator::PrimeIterator(const MagicalContainer &_container) : Iterator(_container) {}
 
-    MagicalContainer::PrimeIterator::PrimeIterator(MagicalContainer _container) : Iterator(_container) {
+    MagicalContainer::PrimeIterator::PrimeIterator(const MagicalContainer::PrimeIterator &_other) {}
 
-    }
-
-    MagicalContainer::PrimeIterator::PrimeIterator(const MagicalContainer::PrimeIterator &_other) {
-
-    }
-
-    MagicalContainer::PrimeIterator::~PrimeIterator() {
-
-    }
+    MagicalContainer::PrimeIterator::~PrimeIterator() = default;
 
     MagicalContainer::PrimeIterator &
     MagicalContainer::PrimeIterator::operator=(const MagicalContainer::PrimeIterator &_other) {
-        return <#initializer#>;
+        return *this;
     }
 
     MagicalContainer::Iterator &MagicalContainer::PrimeIterator::begin() {

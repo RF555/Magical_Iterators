@@ -107,8 +107,9 @@ namespace ariel {
 
             /**
              * @brief Dereference operator.
+             * @return the int value of this element.
              */
-            Iterator &operator*() const;
+            int operator*() const;
 
             /**
              * @brief Pre-increment operator (++i).
@@ -174,7 +175,7 @@ namespace ariel {
         public:
             AscendingIterator();
 
-            explicit AscendingIterator(MagicalContainer _container);
+            explicit AscendingIterator(const MagicalContainer &_container);
 
             AscendingIterator(AscendingIterator const &_other);
 
@@ -248,8 +249,6 @@ namespace ariel {
          * .
          */
         class SideCrossIterator : public Iterator {
-        private:
-            vector<MagicalContainer> &container;
 
         public:
             SideCrossIterator();
@@ -324,7 +323,7 @@ namespace ariel {
         public:
             PrimeIterator();
 
-            explicit PrimeIterator(MagicalContainer _container);
+            explicit PrimeIterator(const MagicalContainer& _container);
 
             PrimeIterator(PrimeIterator const &_other);
 
