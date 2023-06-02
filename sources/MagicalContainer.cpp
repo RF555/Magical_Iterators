@@ -16,6 +16,17 @@ namespace ariel {
 
     MagicalContainer::MagicalNode::MagicalNode(int val) {}
 
+    MagicalContainer::MagicalNode::~MagicalNode() = default;
+
+    MagicalContainer::MagicalNode::MagicalNode(const MagicalContainer::MagicalNode &_other) {}
+
+    MagicalContainer::MagicalNode::MagicalNode(MagicalContainer::MagicalNode &&_other) noexcept {}
+
+    MagicalContainer::MagicalNode &
+    MagicalContainer::MagicalNode::operator=(const MagicalContainer::MagicalNode &_other) {
+        return *this;
+    }
+
     bool operator>(const MagicalContainer::MagicalNode &_node1,
                    const MagicalContainer::MagicalNode &_node2) { return false; }
 
@@ -24,6 +35,11 @@ namespace ariel {
 
     bool operator!=(const MagicalContainer::MagicalNode &_node1,
                     const MagicalContainer::MagicalNode &_node2) { return false; }
+
+    MagicalContainer::MagicalNode &
+    MagicalContainer::MagicalNode::operator=(MagicalContainer::MagicalNode &&_other) noexcept {
+        return *this;
+    }
 
     bool MagicalContainer::is_prime(int num) { return false; }
 
@@ -55,9 +71,20 @@ namespace ariel {
 
     MagicalContainer::Iterator::Iterator(const MagicalContainer::Iterator &_other) {}
 
+    MagicalContainer::MagicalContainer(MagicalContainer &&_other) noexcept {}
+
     MagicalContainer::Iterator::~Iterator() {}
 
-    MagicalContainer::Iterator &MagicalContainer::Iterator::operator=(const MagicalContainer::Iterator &_other) {
+    MagicalContainer::Iterator &
+    MagicalContainer::Iterator::operator=(const MagicalContainer::Iterator &_other) = default;
+
+    MagicalContainer &MagicalContainer::operator=(MagicalContainer &&_other) noexcept {
+        return *this;
+    }
+
+    MagicalContainer::Iterator::Iterator(MagicalContainer::Iterator &&_other) noexcept {}
+
+    MagicalContainer::Iterator &MagicalContainer::Iterator::operator=(MagicalContainer::Iterator &&_other) noexcept {
         return *this;
     }
 
@@ -106,6 +133,13 @@ namespace ariel {
     MagicalContainer::AscendingIterator::~AscendingIterator() = default;
 
     MagicalContainer::AscendingIterator &
+    MagicalContainer::AscendingIterator::operator=(MagicalContainer::AscendingIterator &&_other) noexcept {
+        return *this;
+    }
+
+    MagicalContainer::AscendingIterator::AscendingIterator(MagicalContainer::AscendingIterator &&_other) noexcept {}
+
+    MagicalContainer::AscendingIterator &
     MagicalContainer::AscendingIterator::operator=(const MagicalContainer::AscendingIterator &_other) {
         return *this;
     }
@@ -128,10 +162,17 @@ namespace ariel {
 
     MagicalContainer::SideCrossIterator::SideCrossIterator(const MagicalContainer::SideCrossIterator &_other) {}
 
-    MagicalContainer::SideCrossIterator::~SideCrossIterator() {}
+    MagicalContainer::SideCrossIterator::SideCrossIterator(MagicalContainer::SideCrossIterator &&_other) noexcept {}
+
+    MagicalContainer::SideCrossIterator::~SideCrossIterator() = default;
 
     MagicalContainer::SideCrossIterator &
     MagicalContainer::SideCrossIterator::operator=(const MagicalContainer::SideCrossIterator &_other) {
+        return *this;
+    }
+
+    MagicalContainer::SideCrossIterator &
+    MagicalContainer::SideCrossIterator::operator=(MagicalContainer::SideCrossIterator &&_other) noexcept {
         return *this;
     }
 
@@ -155,6 +196,13 @@ namespace ariel {
 
     MagicalContainer::PrimeIterator::~PrimeIterator() = default;
 
+    MagicalContainer::PrimeIterator::PrimeIterator(MagicalContainer::PrimeIterator &&_other) noexcept {}
+
+    MagicalContainer::PrimeIterator &
+    MagicalContainer::PrimeIterator::operator=(MagicalContainer::PrimeIterator &&_other) noexcept {
+        return *this;
+    }
+
     MagicalContainer::PrimeIterator &
     MagicalContainer::PrimeIterator::operator=(const MagicalContainer::PrimeIterator &_other) {
         return *this;
@@ -171,5 +219,6 @@ namespace ariel {
     MagicalContainer::Iterator &MagicalContainer::PrimeIterator::operator++() {
         return Iterator::operator++();
     }
+
 
 }
