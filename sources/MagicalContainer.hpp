@@ -10,8 +10,10 @@
 using namespace std;
 
 namespace ariel {
-    class MagicalContainer {
 
+    bool isPrime(int num);
+
+    class MagicalContainer {
 
     public:
         class MagicalNode {
@@ -70,7 +72,6 @@ namespace ariel {
 
         };
 
-        static bool is_prime(int num);
 
 
         /**
@@ -123,7 +124,7 @@ namespace ariel {
         public:
             Iterator();
 
-            explicit Iterator(const MagicalContainer& _container);
+            explicit Iterator(const MagicalContainer &_container);
 
             Iterator(Iterator const &_other);
 

@@ -41,7 +41,7 @@ namespace ariel {
         return *this;
     }
 
-    bool MagicalContainer::is_prime(int num) { return false; }
+    bool isPrime(int num) { return false; }
 
     void MagicalContainer::updatePrimes() {}
 
